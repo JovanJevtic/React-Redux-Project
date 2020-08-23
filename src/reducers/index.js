@@ -1,6 +1,11 @@
-import { combineReducers } from 'redux';
-import postReducer from './postReducer';
+import counterReducer from './counter';
+import togglerReducer from './toggler';
 
-export default combineReducers({
-    posts: postReducer
+import { combineReducers } from 'redux';    
+
+const combinedReducers = combineReducers({
+    counter: counterReducer,
+    toggler: togglerReducer
 });
+
+export default combinedReducers;

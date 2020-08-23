@@ -1,25 +1,22 @@
 import React from 'react';
-import './App.scss';
-import { Provider } from 'react-redux';
-
-import Header from './Components/Layout/Header';
-import Posts from './Components/Posts';
-import PostForm from './Components/PostForm';
-
-import store from './store';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement, toggle } from './actions';
 
 function App() {
+
+  const counter = useSelector(state => state.counter);
+  const toggler = useSelector(state => state.toggler);
+  const dispatch = useDispatch();
+
   return (
-    <Provider store={store}>
-      <div className="App">
-        <Header />
-        <div className="container">
-          <PostForm />
-          <hr></hr>
-          <Posts />
-        </div>
-      </div>
-    </Provider>
+    <div className="App">
+      <h1> Counter: {counter} </h1>
+      <button onClick={() => dispatch(increment())} >Increment</button>
+      <button onClick={() => dispatch(decrement())} >Decrement</button>
+
+      <button onClick={() => dispatch(toggle())} >Show hidden data</button>
+      { toggler && <h1>Hidden Data</h1> }
+    </div>
   );
 }
 
