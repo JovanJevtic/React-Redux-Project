@@ -16,3 +16,8 @@ export const toggle = () => {
     };
 }
 
+export const fetch = () => {
+    return {
+        type: 'FETCH'
+    };
+}
