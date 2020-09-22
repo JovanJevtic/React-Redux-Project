@@ -1,0 +1,3 @@
+export const ADD_BOOKMARK = 'ADD_BOOKMARK'
+export const TOGGLE_BOOKMARK = 'TOGGLE_BOOKMARK'
+export const SET_FILTER = 'SET_FILTER'

@@ -1,39 +1,17 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement, toggle, fetch } from './actions';
-import Posts from './components/Posts';
+import React from 'react'
+import AddBookmark from './components/AddBookmark'
+import BookmarksList from './components/BookmarksList'
+import VisibilityFilters from './components/VisibilityFilters'
 
-function App() {
+import './index.css'
 
-  const counter = useSelector(state => state.counter);
-  const toggler = useSelector(state => state.toggler);
-  const fetched = useSelector(state => state.fetched);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetch())
-  }, [])
-
+export default function App() {
   return (
     <div className="App">
-
-    <h1> Counter: {counter} </h1>
-    <button onClick={() => dispatch(fetch())} >Fetch</button>
-
-    <Posts />
-
-      {/* <h1> Counter: {counter} </h1>
-      <button onClick={() => dispatch(increment())} >Increment</button>
-      <button onClick={() => dispatch(decrement())} >Decrement</button>
-      <button onClick={() => dispatch(fetch())} >Fetch</button>
-
-      <button onClick={() => dispatch(toggle())} >Show hidden data</button>
-      { toggler && <h1>Hidden Data</h1> }
-
-      <div>{ fetched }</div> */}
-
+      <h1>Bookmarks</h1>
+      <AddBookmark />
+      <BookmarksList />
+      <VisibilityFilters />
     </div>
   );
 }
-
-export default App;
